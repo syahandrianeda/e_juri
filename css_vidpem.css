@@ -1,0 +1,324 @@
+body {
+    background-color: aquamarine;
+}
+
+/* Full-width input fields */
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* Set a style for all buttons */
+button.login {
+    background-color: blue;
+}
+
+button.wa {
+    background-color: #4CAF50;
+}
+
+button.login,
+button.wa {
+
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 30px;
+}
+
+button.wa:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+    border: 2px double red;
+    border: 30px;
+    padding: 5px
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 99;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 30px;
+}
+
+/* Modal Content/Box */
+
+.modal-petunjuk {
+    width: 95%;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal-content {
+    width: 94%;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal-contenta {
+    width: 70%;
+    /* Could be more or less, depending on screen size */
+}
+
+.modal-contenta,
+.modal-content,
+.modal-petunjuk {
+    background-color: #fefefe;
+    margin: 5% auto 0% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+
+}
+
+/* Modal Contentt/Box */
+.modal-contentt {
+    background-color: #fefefe;
+    margin: auto auto 0% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+
+    to {
+        -webkit-transform: scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+#bargurukelas {
+    display: none
+}
+
+.versii-table {
+    width: 950px;
+    max-width: 100%;
+    border-collapse: collapse
+}
+
+.versi-table {
+    width: auto;
+    max-width: 100%;
+    border-collapse: collapse
+}
+
+.versii-table th,
+.versi-table th,
+.versii-table td,
+.versi-table td,
+.versii-table tr,
+.versi-table tr {
+    border: 1px solid #000;
+    color: #000;
+    padding: 5px 10px 5px 10px
+}
+
+.versii-table th,
+.versi-table th {
+    background-color: #eee;
+    color: blue;
+    vertical-align: middle;
+    text-align: center
+}
+
+.versii-table tr:nth-of-type(even) td,
+.versi-table tr:nth-of-type(even) td {
+    border: 0;
+    background-color: #fff;
+    border: 1px solid #000
+}
+
+.versii-table tr:nth-of-type(odd) td,
+.versi-table tr:nth-of-type(odd) td {
+    border: 0;
+    background-color: #eef;
+    border: 1px solid #000
+}
+
+#wasiswa,
+#mainmenulamaso,
+#mainjuri,
+#barlogout {
+    display: none
+}
+
+
+#previewhp {
+    padding: 5px;
+    width: 100%;
+    margin: 0px;
+    height: 450px;
+    overflow: auto
+}
+
+.tempatsintak {
+    border: 1px solid red;
+    background-color: #eeefff;
+    padding: 5px;
+    border-radius: 5px
+}
+
+input[type=radio]+label.opsi {
+    color: #000;
+    ;
+    cursor: pointer
+}
+
+input[type=radio]:checked+label.opsi::before {
+    content: " \2705"
+}
+
+input[type=radio]:checked+label.opsi {
+    color: blue;
+    background-color: yellow;
+
+}
+
+.modal input[name=contoh1]+label.opsik {
+    color: #000;
+    ;
+    cursor: pointer
+}
+
+.modal input[name=contoh1]:checked+label.opsik::before {
+    content: " \2705"
+}
+
+.modal input[name=contoh1]:checked+label.opsik {
+    color: blue;
+    background-color: yellow;
+
+}
+
+label.asem {
+    border: 1px solid #adacac;
+    background-color: #eeefff;
+    padding: 5px;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: blue
+}
+
+label.asem::before {
+    content: url('https://3.bp.blogspot.com/-6O-y9t8ZdMw/Xnzcbx-RVnI/AAAAAAAAPT4/aS_hpQNKPoAVLJk4BjpE8Zd3s8zEVI2wACLcBGAsYHQ/s1600/kamerakecil.png')
+}
+
+label.asem::after {
+    content: " Unggah Poto"
+}
+
+img.gambarlamaso3 {
+    max-width: 90%
+}
+
+#KodeMatematika,
+#KodeMatematika2 {
+    display: inline-block;
+    text-align: left;
+    line-height: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#KodeMatematika {
+    font-size: 14px;
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penjurian Lomba Video Pembelajaran</title>
+    <link
+        href="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lambang_Kota_Depok.png/371px-Lambang_Kota_Depok.png"
+        rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.2/dist/jquery.table2excel.min.js"></script>
+
+    <link rel="stylesheet" href="css_vidpem.css" />
+</head>
+
+<body>
+    <!-- Top container -->
+    <div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
+        <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey"
+            onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
+        <span class="w3-bar-item w3-right">Penjurian VidPem</span>
+    </div>
+
+
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+
+        <div class="w3-container w3-row">
+            <div class="w3-col s4">
+                <!-- LOGO SEKOLAH -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lambang_Kota_Depok.png/371px-Lambang_Kota_Depok.png"
+                    class="w3-circle w3-margin-right" style="width:90px;height:90px;border:1px solid blue" />
+                <!-- SELESAI LOGO SEKOLAH -->
+            </div>
+            <div class="w3-col s8 w3-bar">
+                <span><strong id="namasekolah">Nama Juri</strong></span><br /><strong
+                    id="namakota">Kategori</strong><br /><span id="tapel">2020</span>
+            </div>
+
+            <hr>
+            <div class="w3-container">
+                <h5>e-Penjurian Video Pembelajaran</h5>
+            </div>
+            <div class="w3-bar-block" id="barlogin">
+
+                <a href="#" class="w3-bar-item w3-button w3-padding" onclick="loginelamaso()"><i
+                        class="fa fa-sign-in"></i>  Login</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+                    onclick="w3_close()" title="close menu">
+                    <i class="fa fa-remove fa-fw"></i>  Tutup Menu
+                </a>
+
+            </div>
+            <div class="w3-bar-block" id="barlogout">
+
+                <a href="#" class="w3-bar-item w3-button w3-padding" onclick="logoutelamaso()"><i
+                        class="fa fa-sign-in"></i>  Logout</a>
+                <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black"
+                    onclick="w3_close()" title="close menu">
+                    <i class="fa fa-remove fa-fw"></i>  Tutup Menu
+                </a>
+
+            </div><br /><br /><br /><br /><br /><br /><br /><br />
+            >> <span style="margin-top:105px">Script By. Ade Andriansyah</span>
+
+        </div>
+    </nav>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer"
+        title="close side menu" id="myOverlay"></div>
+
+
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;" id="mainlogin">
+        <!-- <div id="barloading" style="font-size:36px" class="w3-main w3-center">      </div> -->
+        <div class="container" id="lamanlogin">
+            Di sini laman awal login
+        </div>
+    </div>
+    <div class="w3-main" style="margin-left:300px;margin-top:43px;" id="mainjuri">
+        <!-- id="mainlogin"> -->
+        <div id="barloading" style="font-size:36px" class="w3-main w3-center">
+
+        </div>
+        <div class="container" id="lamanjuri">
+            Di sini laman Juri
+            <h1>Selamat Datang di E-Juri</h1>
+            Selamat datang Bapak/Ibu <b id="namajuritelahlogin">Nama Anda</b>, Anda ditugaskan menjadi <b
+                id="peran"></b> mata lomba
+            Video Pembelajaran pada jenjang <b id="jenjangtelahlogin">jenjang sekolah</b>.
+            <br /><br />
+            Di bawah ini ada tabel daftar peserta lomba. Anda tinggal menekan tombol "beri nilai" untuk mengisi skor
+            juri. Nantinya Anda akan diarahkan pada lembar penjurian yang telah disepakati oleh Koordinator.
+            <div id="loading">...</div>
+            <hr />
+            <div id="tabelpendaftar" style="overflow-x: auto;">
+                disini akan ada tabel daftar
+                disini akan ada tabel daftar
+            </div>
+        </div>
+    </div>
+
+    <!-- Kumpulan tempat Modal modal -->
+    <div id="modallogin" class="modal">
+        <form class="modal-contenta animate" name="frmlogin">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('modallogin').style.display='none'" class="close"
+                    title="Tutup Form">&times;</span>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lambang_Kota_Depok.png/371px-Lambang_Kota_Depok.png"
+                    class="w3-circle" width="60px" />
+                <div id="loaderform"> </div>
+                <br />
+                SELAMAT DATANG DI e-JURI
+            </div>
+            <div class="container">
+
+                <label for="namaguru"><b>Silakan Pilih Nama Juri</b></label><br />
+                <select id="namaguru" name="namaguru" style="width:100%;height:30px">
+                    <option id="juri9" value="Wawang B|Koordinator|All">Wawang B</option>
+                    <option id="juri10" value="Suhyana|Koordinator|SD">Suhyana</option>
+                    <option id="juri1" value="Ade Andriansyah|SD|SD">Ade Andriansyah</option>
+                    <option id="juri2" value="Titin S|SD|SD">Titin S</option>
+                    <option id="juri3" value="Haryanto|SMP|SMP">Haryanto</option>
+                    <option id="juri4" value="Priyantoro|SMP|SMP">Biantoro</option>
+                    <option id="juri5" value="Abdurahman|Koordinator|SMP">Abdurahman</option>
+                    <option id="juri6" value="Joko Sutrisno|Koordinator|TK">Joko Sutrisno</option>
+                    <option id="juri7" value="Mimin Utomo|TK|TK">Mimin Utomo</option>
+                    <option id="juri8" value="Ririn|TK|TK">Ririn</option>
+                </select>
+                <!-- <label for="kelasguru"><b>Pilih Kelas</b></label><br />
+                <select id="kelasguru" name="kelasguru" onchange="prlogin()" title="Kelas"
+                    style="width:100%;height:30px">
+                </select> -->
+            </div>
+            <div class="modal-contentt animate">
+                <button type="button" onclick="gurulogin()" id="loginpertama" class="login"><i class="fa fa-check"></i>
+                    Login</button>
+            </div>
+            <div class="modal-contentt" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('modallogin').style.display='none'"
+                    class="cancelbtn wa"><i class="fa fa-cross"></i> Batal</button>
+
+                <!-- <button type="button" onclick="paneladmin()" class="login" id="loginadminadmin"><i class="fa fa-cross"></i> Admin</button> -->
+            </div>
+
+
+        </form>
+
+
+    </div>
+    <!-- 02 Modal Print -->
+    <iframe id="iframeprint" name="iframeprint" style="display:none"></iframe>
+    <!--  06 modalpetunjuk -->
+    <div id="modalpetunjuk" class="modal">
+        <div class="modal-petunjuk container">
+            <div class="imgcontainer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lambang_Kota_Depok.png/371px-Lambang_Kota_Depok.png"
+                    style="width:90px;height:90px;border:1px solid blue" class="w3-circle" /><br />
+                <h3 id="judulpetunjuk">Judul Petunjuk</h3>
+                <span
+                    onclick="document.getElementById('isipetunjuk').innerHTML='';document.getElementById('modalpetunjuk').style.display='none';"
+                    class="close" title="Tutup Form">&times;</span>
+            </div>
+
+            <div id="isipetunjuk" style="overflow-x: auto;">
+
+                <!-- <iframe src="https://drive.google.com/file/d/1gyIU2BJDQMnc5JBRFDgs4NyVmuDH5Eme/preview" width="640"
+                    height="480"></iframe> -->
+            </div>
+
+            <!-- <iframe id="previewvideo" width="94%" height="480"></iframe> -->
+
+            <form name="formskor" id="formskor" style="display: block;">
+                <fieldset style="display: none;">
+                    //tanggalkirim email namapeserta instansi nip alamatinstansi nohp linkvideo jenjang nowa olehjuri
+                    <input name="email" id="email" style="display: block" />
+                    <input name="namapeserta" id="namapeserta" style="display: block" />
+                    <input name="instansi" id="instansi" style="display: block" />
+                    <input name="nip" id="nip" style="display: block" />
+                    <input name="alamatinstansi" id="alamatinstansi" style="display: block" />
+                    <input name="nohp" id="nohp" style="display: block" />
+                    <input name="linkvideo" id="linkvideo" style="display: block" />
+                    <input name="jenjang" id="jenjang" style="display: block" />
+                    <input name="nowa" id="nowa" style="display: block" />
+                    <input name="olehjuri" id="olehjuri" style="display: block" />
+
+                </fieldset>
+                <fieldset style="background-color: rgb(255, 218, 218);">
+                    <h3 style="text-align: center;">Aspek Penilaian<br />Kesesuaian Konten Video</h3>
+                    Indikator:
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Kesesuaian Konten video dengan masa pandemi</li>
+                        <li>Kesesuaian konten video dengan narasi</li>
+                        <li>Kesesuaian konten video dengan topik</li>
+                    </ol>
+                    Nilai Skor (Maksimal 25):
+                    <input name="nilai1" id="nilai1" class="classscore" onchange="updateinputskor()"
+                        style="height: 30px;" type="number" min="0" max="25" /><b id="bnilai1"></b>
+                </fieldset>
+                <fieldset style="background-color: rgb(255, 251, 191);">
+                    <h3 style="text-align: center;">Aspek Penilaian<br />Pemecahan Masalah</h3>
+                    Indikator:
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Inspiratif</li>
+                        <li>Mudah Diterapkan</li>
+                        <li>Hemat Biaya</li>
+                    </ol>
+                    Nilai Skor (Maksimal 30):
+                    <input name="nilai2" id="nilai2" class="classscore" onchange="updateinputskor()"
+                        style="height: 30px;" type="number" min="0" max="30" /><b id="bnilai2"></b>
+                </fieldset>
+                <fieldset style="background-color: rgb(217, 255, 191);">
+                    <h3 style="text-align: center;">Aspek Penilaian<br />Kreatifitas Konten Video</h3>
+                    Indikator:
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Inovatif</li>
+                        <li>Modifikatif</li>
+                        <li>Adaptif</li>
+                    </ol>
+                    Nilai Skor (Maksimal 35):
+                    <input name="nilai3" id="nilai3" style="height: 30px;" class="classscore"
+                        onchange="updateinputskor()" type="number" min="0" max="35" /><b id="bnilai3"></b>
+                </fieldset>
+                <fieldset style="background-color: rgb(191, 206, 255);">
+                    <h3 style="text-align: center;">Aspek Penilaian<br />Kualitas Video</h3>
+                    Indikator:
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Kesesuaian Alur</li>
+                        <li>Kualitas Visual</li>
+                        <li>Kualitas Audio</li>
+                        <li>Kesesuaian ketepatan durasi waktu</li>
+                    </ol>
+                    Nilai Skor (Maksimal 10):
+                    <input name="nilai4" id="nilai4" class="classscore" onchange="updateinputskor()"
+                        style="height: 30px;" type="number" min="0" max="10" /><b id="bnilai4"></b>
+                </fieldset><br />
+                <fieldset style="background-color: rgb(191, 206, 255);text-align:center;">
+                    <h3 style="text-align: center;">Skor Akhir</h3>
+                    <input name="total" id="total" style="font-size: large;" disabled />
+                </fieldset>
+            </form>
+            <div id="tombolmenilai">
+                <button class="wa" id="inputnilai" onclick="kirimnilai()"><i class="fa fa-paper-plane"></i> Kirim
+                    Skor</button>
+
+                <!-- <button class="wa" id="printformnilai"><i class="fa fa-print"></i> Print</button>
+                <button class="wa" id="pdfformnilai"><i class="fa fa-file-pdf-o"></i> Simpan ke PDF</button> -->
+            </div>
+            <div id="tombolrefreshmenilai">
+                <button class="wa" id="closea"
+                    onclick="document.getElementById('isipetunjuk').innerHTML='';document.getElementById('modalpetunjuk').style.display='none';"><i
+                        class="fa fa-times"></i> Refresh dan Nilai</button>
+
+            </div>
+            <form
+                style="border:1px solid black;background-color:black;color:white;position:fixed;bottom:5px;font-size:18px;font-weight:700"
+                title="Tutup"
+                onclick="document.getElementById('isipetunjuk').innerHTML='';document.getElementById('modalpetunjuk').style.display='none';">
+                [&times;] Tutup</form>
+        </div>
+        ==&gt;&gt; e-Juri @Created By. Ade Andriansyah 2020 &lt;&lt;==
+        <br /><br />
+    </div>
+
+    <script src="javascriptnya.js"></script>
+    <script id="rendered-js" src="renderpdf.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js">
+    </script>
+</body>
+
+</html>
